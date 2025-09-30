@@ -58,7 +58,7 @@ class LLMRunCases:
             }, {
                 "weight_quant_granularity": "per_group",
                 "weight_group_size": 11,
-                "learned_round": "linear_round",
+                "learned_round": "identity",
                 "learned_round_iters": 1,
                 "gpxq_block_name": "model.layers",
             },
@@ -80,7 +80,7 @@ class LLMRunCases:
             "quant_sdpa_fx_per_row",
             "quant_sdpa_functional_per_row",
             "functional_sdpa_quant=True,rotation=fused_no_fx",
-            "per_group_w_padding,learned_round=linear_round",
+            "per_group_w_padding,learned_round=identity",
         ],)
     def case_small_models_toggle_args(self, run_dict, default_run_args, request):
         yield process_args_and_metrics(default_run_args, run_dict)
@@ -139,7 +139,7 @@ class LLMPerplexityCases:
                 "act_calibration": False,
                 "weight_bit_width": 4,
                 "input_bit_width": None,
-                "learned_round": "linear_round",
+                "learned_round": "identity",
                 "learned_round_iters": 1,
                 "gpxq_block_name": "model.layers",
                 "float_ppl": 32428.475,
@@ -149,7 +149,7 @@ class LLMPerplexityCases:
                 "act_calibration": False,
                 "weight_bit_width": 4,
                 "input_bit_width": None,
-                "learned_round": "linear_round",
+                "learned_round": "identity",
                 "learned_round_iters": 1,
                 "gpxq_block_name": "model.layers",
                 "float_ppl": 36796.984,
